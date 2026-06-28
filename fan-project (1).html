@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Amazing Project #6 - Fan Animation</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background: #161616;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+
+  .card {
+    width: 380px;
+    background: #1c1c1c;
+    border-radius: 18px;
+    padding: 30px 20px 40px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #a64dff;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 12px rgba(166, 77, 255, 0.7);
+  }
+
+  .fan-box {
+    background: #0e0e0e;
+    border-radius: 16px;
+    padding: 35px 0 25px;
+    position: relative;
+  }
+
+  .ring {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 6px solid #19e6e6;
+    box-shadow:
+      0 0 15px #19e6e6,
+      0 0 30px #19e6e6,
+      inset 0 0 15px #19e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #0a0a0a 60%, #050505 100%);
+  }
+
+  /* fan blades made with SVG inside an img-like div with animation */
+  #img {
+    width: 200px;
+    height: 200px;
+    animation-name: spin;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 0s; /* starts OFF */
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hub {
+    fill: #3a3f6b;
+  }
+
+  .hub-dot {
+    fill: #1c1f3a;
+  }
+
+  .controls {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    color: #111;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+    transition: transform 0.15s ease;
+  }
+
+  .btn:hover {
+    transform: scale(1.08);
+  }
+
+  .btn:active {
+    transform: scale(0.95);
+  }
+
+  .on {
+    background: #2ecc40;
+    color: #073b0a;
+  }
+
+  .off {
+    background: #e63946;
+    color: #3b0707;
+  }
+
+  .num {
+    background: #d9d9d9;
+    color: #222;
+  }
+
+  .credit {
+    margin-top: 18px;
+    color: #aaa;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>My Project #9</h1>
+
+    <div class="fan-box">
+      <div class="ring">
+        <svg id="img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+           
+          <g>
+            <path d="M100,100 C100,60 70,30 100,10 C130,30 130,70 100,100 Z" fill="#7fd9f5"/>
+            <path d="M100,100 C140,100 170,70 190,100 C170,130 130,130 100,100 Z" fill="#3a8fdc"/>
+            <path d="M100,100 C100,140 130,170 100,190 C70,170 70,130 100,100 Z" fill="#5fc7e6"/>
+            <path d="M100,100 C60,100 30,130 10,100 C30,70 70,70 100,100 Z" fill="#2f6fb8"/>
+          </g>
+          <circle cx="100" cy="100" r="28" class="hub"/>
+          <circle cx="100" cy="100" r="8" class="hub-dot"/>
+        </svg>
+      </div>
+
+      <div class="controls">
+        <button class="btn on" onclick="myfunon()">ON</button>
+        <button class="btn off" onclick="myfunoff()">OFF</button>
+        <button class="btn num" onclick="myfun2()">1</button>
+        <button class="btn num" onclick="myfun3()">2</button>
+        <button class="btn num" onclick="myfun4()">3</button>
+      </div>
+    </div>
+
+    <div class="credit">linkedin.com/in/abhi-yadav241372</div>
+  </div>
+
+<script>
+  let a = document.getElementById("img");
+
+  function myfunon() {
+    a.style.animationDuration = 3 + "s";
+  }
+  function myfunoff() {
+    a.style.animationDuration = 0 + "s";
+  }
+  function myfun2() {
+    a.style.animationDuration = 1 + "s";
+  }
+  function myfun3() {
+    a.style.animationDuration = 0.5 + "s";
+  }
+  function myfun4() {
+    a.style.animationDuration = 0.1 + "s";
+  }
+</script>
+
+</body>
+</html>
